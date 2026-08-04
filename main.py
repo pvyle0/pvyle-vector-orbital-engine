@@ -38,6 +38,10 @@ while running:
         ship.set_throttle(1.0)
     if keys[pygame.K_x]:
         ship.set_throttle(0.0)
+    if keys[pygame.K_LEFT]:
+        ship.rotate(-1, dt)
+    if keys[pygame.K_RIGHT]:
+        ship.rotate(1, dt)
  
     screen.fill((10, 10, 15))
     pygame.draw.lines(screen, (150, 150, 150), True, orbit_points, 1)
