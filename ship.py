@@ -2,12 +2,11 @@ import pygame
 import math
 
 class Ship:
-    def __init__(self, x, y, vx, vy):
+    def __init__(self, x, y, vx, vy, thrust_power=2):
         self.position = pygame.Vector2(x, y)
         self.velocity = pygame.Vector2(vx, vy)
-        self.thrust_power = 2
+        self.thrust_power = thrust_power
         self.throttle = 0.0
-
         self.angle = -math.pi / 2
         self.turn_speed = 3.0
     def draw(self, screen):

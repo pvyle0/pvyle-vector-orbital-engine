@@ -11,11 +11,11 @@ def compute_acceleration(position, center, g_const):
     acceleration = direction * force
     return acceleration
 
-def apply_gravity(ship, center, g_const, dt):
+def apply_gravity(ship, center, g_const, physics_dt):
     old_acceleration = compute_acceleration(ship.position, center, g_const)
-    ship.position += ship.velocity * dt + 0.5 * old_acceleration * (dt ** 2)
+    ship.position += ship.velocity * physics_dt + 0.5 * old_acceleration * (physics_dt ** 2)
     new_acceleration = compute_acceleration(ship.position, center, g_const)
-    ship.velocity += 0.5 * (old_acceleration + new_acceleration) * dt
+    ship.velocity += 0.5 * (old_acceleration + new_acceleration) * physics_dt
 
 def compute_orbit_elements(position, velocity, center, mu):
     r_vec = position - center
