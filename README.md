@@ -1,7 +1,7 @@
 # Pvyle Vector Orbital Engine (PVOE)
 
 Personal project: a 2D orbital mechanics simulator with real-time trajectory
-calculation and a Mission Control / KSP-style interface.
+calculation and a Mission Control
 
 ## Status
 
