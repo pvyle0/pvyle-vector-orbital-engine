@@ -12,22 +12,24 @@ class Ship:
         self.throttle = 0.0
         self.angle = -math.pi / 2
         self.turn_speed = 3.0
-    def draw(self, screen):
+
+
+    def draw(self, screen, screen_pos):
         size = 10
-        nose = self.position + pygame.Vector2(
+        nose = screen_pos + pygame.Vector2(
             math.cos(self.angle) * size,
             math.sin(self.angle) * size
         )
-
-        left_wing = self.position + pygame.Vector2(
+        left_wing = screen_pos + pygame.Vector2(
             math.cos(self.angle + 2.5) * size * 0.6,
             math.sin(self.angle + 2.5) * size * 0.6
         ) 
-        right_wing = self.position + pygame.Vector2(
+        right_wing = screen_pos + pygame.Vector2(
             math.cos(self.angle - 2.5) * size * 0.6,
             math.sin(self.angle - 2.5) * size * 0.6
         )
         pygame.draw.polygon(screen, (255, 255, 255), [nose, left_wing, right_wing])
+
  
     def update_physics(self, dt):
         if self.throttle > 0 and self.fuel_mass > 0:
@@ -42,6 +44,7 @@ class Ship:
             thrust_force = self.thrust_power * self.throttle
             acceleration = thrust_force / current_mass
             self.velocity += thrust_direction * acceleration * dt
+
 
     def adjust_throttle(self, amount):
         self.throttle = max(0.0, min(1.0, self.throttle + amount))

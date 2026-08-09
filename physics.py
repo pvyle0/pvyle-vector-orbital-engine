@@ -21,19 +21,13 @@ def compute_orbit_elements(position, velocity, center, mu):
     r_vec = position - center
     r = r_vec.length()
     v = velocity.length()
-
     energy = (v ** 2) / 2 - mu / r
-
     a = -mu / (2 * energy)
-
     h = r_vec.x * velocity.y - r_vec.y * velocity.x
-
     e_squared = 1 + (2 * energy * h ** 2) / (mu ** 2)
     e = math.sqrt(max(e_squared, 0))
-
     apoapsis = a * (1 + e)
     periapsis = a * (1 - e)
-
     return apoapsis, periapsis, a, e
 
 def get_orbit_points(position, velocity, center, mu, num_points=100):
@@ -52,7 +46,10 @@ def get_orbit_points(position, velocity, center, mu, num_points=100):
     e_vec_x = ((v ** 2 - mu / r) * r_vec.x - rv_dot * velocity.x) / mu
     e_vec_y = ((v ** 2 - mu / r) * r_vec.y - rv_dot * velocity.y) / mu
 
-    periapsis_angle = math.atan2(e_vec_y, e_vec_x)
+    if e > 0.001:
+        periapsis_angle = math.atan2(e_vec_y, e_vec_x)
+    else:
+        periapsis_angle = 0
     ellipse_center_x = center.x - a * e * math.cos(periapsis_angle)
     ellipse_center_y = center.y - a * e * math.sin(periapsis_angle)
 

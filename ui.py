@@ -4,8 +4,6 @@ def draw_panel(screen, font, x, y, width, title, lines, color=(150, 220, 150), s
     line_height = 22
     padding = 10
     height = padding * 2 + line_height * (len(lines) + 1)
-
-
     title_surface = font.render(title, True, color)
     screen.blit(title_surface, (x + padding, y + padding))
     separator_y = y + padding + line_height - 4
@@ -35,5 +33,9 @@ def draw_naviball_placeholder(screen, font, x, y, width, height, color=(150, 220
     pygame.draw.circle(screen, color, (circle_center_x, circle_center_y), radius, 1)
     pygame.draw.line(screen, color, (circle_center_x - radius, circle_center_y), (circle_center_x + radius, circle_center_y), 1)
     pygame.draw.line(screen, color, (circle_center_x, circle_center_y - radius), (circle_center_x, circle_center_y + radius), 1)
-
     return height
+
+def world_to_screen(world_pos, camera_offset, camera_zoom, viewport_center):
+    relative = world_pos - camera_offset
+    screen_pos = relative * camera_zoom + viewport_center
+    return screen_pos
