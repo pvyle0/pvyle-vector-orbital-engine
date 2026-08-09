@@ -5,9 +5,9 @@ calculation and a Mission Control-style UI.
 
 ## Status
 
-🚧 Early stage. Core physics and UI layout are working, but many features
-are still missing or placeholder (fuel, mass, multiple bodies, navball is
-just a visual stub for now).
+🚧 Early stage. Core physics, ship selection, and UI layout are working.
+Still missing: multiple celestial bodies, working navball (currently a
+visual stub), and mission save/load.
 
 ## What works
 
@@ -18,14 +18,16 @@ just a visual stub for now).
 - ✅ Mission Control-style UI: grid layout with telemetry, resources, trajectory panels
 - ✅ Time warp (x1 to x10000)
 - ✅ Real-world scale (~1:10 Earth), realistic orbital velocities (km/s)
+- ✅ Fuel consumption and ship mass (thrust scales with current mass as fuel depletes)
+- ✅ 5 selectable ship presets with different mass/thrust/fuel characteristics
+- ✅ TWR calculation based on local gravity
 
 ## Roadmap
 
-- ⬜ Fuel consumption and ship mass (Tsiolkovsky rocket equation)
 - ⬜ Working navball (currently a visual placeholder)
 - ⬜ Multiple celestial bodies / sphere of influence transitions
 - ⬜ Custom star system config
-- ⬜ Several ship presets with different mass/thrust/fuel capacity
+- ⬜ Assignments and missions
 - ⬜ Mission save/load
 
 ## Getting started
@@ -34,7 +36,6 @@ just a visual stub for now).
 pip install -r requirements.txt
 python main.py
 ```
-
 ## Controls
 
 - `Z` — full throttle
@@ -42,6 +43,7 @@ python main.py
 - `Left Shift` / `Left Ctrl` — adjust throttle
 - `Left` / `Right` — rotate ship
 - `,` / `.` — decrease/increase time warp
+- `1`-`5` — switch ship
 
 ## Why this project
 
