@@ -17,7 +17,7 @@ def draw_panel(screen, font, x, y, width, title, lines, color=(150, 220, 150), s
 
     return height
 
-def draw_grid_lines(screen, width, height, left_panel_width, bottom_panel_y, color = (80, 100, 80)):
+def draw_grid_lines(screen, width, height, left_panel_width, bottom_panel_y, color=(80, 100, 80)):
     pygame.draw.line(screen, color, (left_panel_width, 0), (left_panel_width, height), 1)
     pygame.draw.line(screen, color, (0, bottom_panel_y), (left_panel_width, bottom_panel_y), 1)
     pygame.draw.line(screen, color, (left_panel_width, bottom_panel_y), (width, bottom_panel_y), 1)
